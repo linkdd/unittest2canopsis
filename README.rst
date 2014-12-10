@@ -68,7 +68,7 @@ Example of generated events :
      "resource": "test_fail",
      "state": 2,
      "state_type": 1,
-     "output": "Traceback (most recent call last):\n  File "mytest.py", line 11, in test_fail\n    self.assertFalse(True)\nAssertionError: True is not false\n"
+     "output": "Traceback (most recent call last):\n  File \"mytest.py\", line 11, in test_fail\n    self.assertFalse(True)\nAssertionError: True is not false\n"
    }
    {
      "timestamp": 1418206046,
