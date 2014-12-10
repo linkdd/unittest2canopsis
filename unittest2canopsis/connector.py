@@ -19,17 +19,17 @@ class CanopsisTestResult(TestResult):
     def testResult(self, test):
         for failure in self.failures:
             if failure[0] is test:
-                return True, 2, failure[1]
+                return 2, failure[1]
 
         for error in self.errors:
             if error[0] is test:
-                return True, 3, error[1]
+                return 3, error[1]
 
-        return False, 0, 'OK'
+        return 0, 'OK'
 
     def stopTest(self, test):
         module, testcase, testname = test.id().split('.')
-        success, state, output = self.testResult(test)
+        state, output = self.testResult(test)
 
         event = {
             'timestamp': int(time()),
@@ -55,7 +55,6 @@ class CanopsisTestResult(TestResult):
 
         self.evts_to_send.append((rk, event))
         print('{0}... {1}'.format(rk, UNITTEST_STATES[state]))
-        print(event)
 
     def report(self):
         with Connection(self.amqpuri) as conn:
