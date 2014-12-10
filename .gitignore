@@ -1,0 +1,8 @@
+*.pyc
+bin
+build
+dist
+include
+lib
+local
+tcp2canopsis.egg-info
